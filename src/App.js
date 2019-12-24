@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      todos: [
+      todolist: [
         { title: 'hogehoge1' },
         { title: 'hogehoge2' },
         { title: 'hogehoge3' },
@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <List todos={ this.state.todos }/>
+        <List todolist={ this.state.todolist }/>
       </div>
     );
   }
