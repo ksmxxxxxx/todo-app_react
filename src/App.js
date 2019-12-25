@@ -6,22 +6,16 @@ import { List } from './List';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      todolist: [
-        { title: 'hogehoge1' },
-        { title: 'hogehoge2' },
-        { title: 'hogehoge3' },
-        { title: 'hogehoge4' },
-        { title: 'hogehoge5' },
-        { title: 'hogehoge6' }
-      ]
-    };
   }
 
   render() {
     return (
       <div>
-        <List todolist={ this.state.todolist }/>
+        <h1>TODO App</h1>
+        <h2>List</h2>
+        <ul>
+          <List todolist={ this.props.todolist } />
+        </ul>
       </div>
     );
   }

@@ -1,17 +1,26 @@
 import React from 'react';
 
 export class List extends React.Component {
-  render() {
-    const list = this.props.todolist.map(todo => {
-      return(
-        <li>{ todo.title }</li>
-      );
-    });
+  constructor(props) {
+    super(props);
+    this.state = {
+      todolist: [
+        { title: 'hogehoge1' },
+        { title: 'hogehoge2' },
+        { title: 'hogehoge3' },
+        { title: 'hogehoge4' },
+        { title: 'hogehoge5' }
+      ]
+    }
+  }
 
+  render() {
     return (
-      <ul>
-        <li>{ list }</li>
-      </ul>
-    );
+      <>
+      {this.state.todolist.map(({ title }) => (
+        <li>{ title }</li>
+      ))}
+      </>
+    )
   }
 }
