@@ -3,19 +3,18 @@ import React from 'react';
 export class AddTodo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: "" };
+    this.state = { title: "", status: "" };
   }
 
   handleChange = ev => {
     const title = ev.target.value;
-    this.setState( { title: title } );
+    this.setState( { title: title} );
   }
 
   handleSubmit = ev => {
     ev.preventDefault();
-    //alert(this.state.title);
-    this.props.addTodo(this.state.title);
-    this.setState({ title: "" });
+    this.props.addTodo(this.state.title, this.state.status);
+    this.setState({ title: "", status: "" });
   }
 
 

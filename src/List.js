@@ -6,10 +6,18 @@ export class List extends React.Component {
   }
 
   render() {
+    const buttonText = this.props.done
+    console.log(buttonText);
     return (
       <>
-      {this.props.todolist.map(({ title }) => (
-        <li>{ title }</li>
+      {this.props.todolist.map(post => (
+        <>
+          <li key={post.index}>
+            {post.title}
+          </li>
+          <button onClick={ () => this.props.updateStatus(post.index) }>{ buttonText }</button>
+          <button onClick={ () => this.props.removeTodo(post.id) }>delete</button>
+        </>
       ))}
       </>
     )
