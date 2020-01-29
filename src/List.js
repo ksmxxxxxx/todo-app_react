@@ -6,19 +6,17 @@ export class List extends React.Component {
   }
 
   render() {
-    const buttonText = this.props.done
-    console.log(buttonText);
+      const listItem = this.props.todolist.map((elem, i) => {
+        const doneButtonLable = elem.done ? 'incompleted' : 'complete';
+        return <li key={i}>
+          {elem.title}
+            <button onClick={ () => this.props.updateStatus(elem.index) }>{ doneButtonLable }</button>
+            <button onClick={ () => this.props.removeTodo(elem.index) }>delete</button>
+          </li>
+      });
     return (
       <>
-      {this.props.todolist.map(post => (
-        <>
-          <li key={post.index}>
-            {post.title}
-          </li>
-          <button onClick={ () => this.props.updateStatus(post.index) }>{ buttonText }</button>
-          <button onClick={ () => this.props.removeTodo(post.id) }>delete</button>
-        </>
-      ))}
+      {listItem}
       </>
     )
   }

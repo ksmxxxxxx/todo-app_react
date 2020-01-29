@@ -13,8 +13,8 @@ export class AddTodo extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault();
-    this.props.addTodo(this.state.title, this.state.status);
-    this.setState({ title: "", status: "" });
+    this.props.addTodo(this.state.title, this.state.done);
+    this.setState({ title: "", done: "" });
   }
 
 

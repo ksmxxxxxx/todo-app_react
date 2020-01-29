@@ -25,14 +25,12 @@ class App extends React.Component {
     const todoItem = todoItems[index - 1];
     todoItem.done = !todoItem.done;
     todoItems[index - 1] = todoItem;
-    const statusLabel = todoItem.done? 'incompleted' : 'completed';
-    console.log(statusLabel);
     this.setState({todoItems});
   }
 
-  removeTodo = id => {
+  removeTodo = index => {
     this.setState({
-      todolist: this.state.todolist.filter(todo => (todo.id !== id))
+      todolist: this.state.todolist.filter(todo => (todo.index !== index))
     })
   }
 
