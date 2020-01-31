@@ -21,8 +21,10 @@ export class AddTodo extends React.Component {
   render() {
     return (
       <form onSubmit={ this.handleSubmit }>
-        <input type="text" value={ this.state.title } onChange={ this.handleChange }/>
-        <button type="submit">Add todo</button>
+        <div className="form-group form-inline">
+          <input type="text" className="form-control" value={ this.state.title } onChange={ this.handleChange }/>
+          <button type="submit" className="btn btn-primary ml-2">Add todo</button>
+        </div>
       </form>
     )
   }

@@ -39,12 +39,12 @@ class App extends React.Component {
     const addTodo = this.addTodo;
     return (
       <>
-        <h1>TODO App</h1>
+        <h1 className="h2">TODO App</h1>
         <AddTodo addTodo={addTodo} />
-        <h2>List</h2>
-        <ul>
+        <h2 className="h3">List</h2>
+        <div className="mt-3">
           <List removeTodo={this.removeTodo} todolist={todolist} updateStatus={this.updateStatus} />
-        </ul>
+        </div>
       </>
     );
   }
