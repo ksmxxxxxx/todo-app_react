@@ -4,16 +4,18 @@ export class AddTodo extends React.Component {
   constructor(props) {
     super(props);
     this.state = { title: "", status: "" };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = ev => {
     const title = ev.target.value;
-    this.setState( { title: title} );
+    this.setState( { title } );
   }
 
   handleSubmit = ev => {
     ev.preventDefault();
-    this.props.addTodo(this.state.title, this.state.done);
+    const { title, done } = this.state;
+    this.props.addTodo(title, done);
     this.setState({ title: "", done: "" });
   }
 
