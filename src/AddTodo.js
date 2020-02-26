@@ -3,7 +3,7 @@ import React from 'react';
 export class AddTodo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", status: "" };
+    this.state = { title: "", done: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

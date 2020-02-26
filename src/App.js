@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 import List from './List';
 import { AddTodo } from './AddTodo';
@@ -11,8 +10,6 @@ class App extends React.Component {
       todolist: [],
       nextId: 0
     };
-    this.updateStatus = this.updateStatus.bind(this);
-    this.removeTodo = this.removeTodo.bind(this);
   }
 
   addTodo = title => {
@@ -23,16 +20,18 @@ class App extends React.Component {
   };
 
   updateStatus = index => {
-    const todoItems = this.state.todolist.slice();
-    const todoItem = todoItems[index - 1];
-    todoItem.done = !todoItem.done;
-    todoItems[index - 1] = todoItem;
-    this.setState({ todoItems });
+    const { todolist } = this.state;
+    const updateTodolist = todolist.map(todo => {
+      if(todo.index === index.id) {
+        todo.done = !todo.done;
+      }
+    });
+    this.setState({ updateTodolist });
   }
 
   removeTodo = index => {
     this.setState({
-      todolist: this.state.todolist.filter(todo => (todo.index !== index))
+      todolist: this.state.todolist.filter(todo => (todo.index !== index.id))
     });
   }
 
