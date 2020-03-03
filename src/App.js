@@ -21,12 +21,10 @@ class App extends React.Component {
 
   updateStatus = index => {
     const { todolist } = this.state;
-    const updateTodolist = todolist.map(todo => {
-      if(todo.index === index.id) {
-        todo.done = !todo.done;
-      }
-    });
-    this.setState({ updateTodolist });
+    const updateTodolist = [...todolist].map(todo =>
+      (todo.index === index.id ? {...todo, done: !todo.done} : todo)
+    );
+    this.setState({ todolist: updateTodolist });
   }
 
   removeTodo = index => {
